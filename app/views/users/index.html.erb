@@ -1,0 +1,17 @@
+<div class="dashboard-container">
+  <h1>Welcome to the Dashboard</h1>
+  <div class="profile-card">
+    <h1>Users</h1>
+    <ul>
+      <% @user.each do |i| %>
+        <li class ="index-list">
+          <%= link_to i.first_name, i%>
+        </li>
+      <% end %>
+    </ul>
+    
+    <div class="add-user-btn">
+      <a class="submit-btn2" href="/users/new">Add New User</a>
+    </div>
+  </div>
+</div>

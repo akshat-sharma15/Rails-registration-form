@@ -1,0 +1,46 @@
+<div class="dashboard-container">
+  <h1>User Details</h1>
+</div>
+
+<div class="profile-card">
+  <h1><%=@user.first_name%> <%=@user.last_name%></h1>
+  <ul>
+    <li>
+      <span>Email:</span>
+      <span class="highlight"><%=@user.email%></span>
+    </li>
+
+    <li>
+      <span>Mobile number:</span>
+      <span class="highlight"><%=@user.mobile%></span>
+    </li>
+
+    <li>
+      <span>DOB:</span>
+      <span class="highlight"><%=@user.dob %></span>
+    </li>
+
+    <li>
+      <span>Gender:</span>
+      <span class="highlight"><%= @user.gender %></span>
+    </li>
+
+    <li>
+      <span>Course:</span>
+      <span class="highlight">B.Tech</span>
+    </li>
+
+    <li>
+      <span>College:</span>
+      <span class="highlight"><%= @user.college %></span>
+    </li>
+
+    <li>
+      <%= link_to "Edit", edit_user_path(@user), class: "submit-btn2" %>    <%= link_to "Delete", user_path(@user), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } , class: "submit-btn2" %>
+      
+    </li>
+  </ul>
+</div>

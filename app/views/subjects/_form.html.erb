@@ -1,0 +1,28 @@
+<div class="add-subject">
+  <h2>Add a subject:</h2>
+  <%= form_with model: [ @user, @user.subjects.build ] do |form| %>
+    <div class="form-group2">
+      <%= form.label :sub_name %>
+      <%= form.text_field :sub_name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group2">
+      <%= form.label :sub_code %>
+      <%= form.text_area :sub_code, class: 'form-control' %>
+    </div>
+
+    <div class="form-group2">
+      <%= form.label :details %>
+      <%= form.text_area :details, class: 'form-control' %>
+    </div>
+
+    <p>
+      <%= form.label :status %><br>
+      <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
+    </p>
+
+    <div class="form-group2">
+      <%= form.submit 'Create Subject', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

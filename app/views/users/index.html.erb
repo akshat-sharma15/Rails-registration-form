@@ -1,12 +1,17 @@
 <div class="dashboard-container">
   <h1>Welcome to the Dashboard</h1>
+  <h2>
+    Our system has <%= User.public_count %> Users and counting!
+  </h2>
   <div class="profile-card">
     <h1>Users</h1>
     <ul>
       <% @user.each do |i| %>
-        <li class ="index-list">
-          <%= link_to i.first_name, i%>
-        </li>
+        <% unless i.archived? %>
+          <li class ="index-list">
+            <%= link_to i.first_name, i%>
+          </li>
+        <% end %>
       <% end %>
     </ul>
     

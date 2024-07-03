@@ -5,10 +5,14 @@ class User < ApplicationRecord
   validates :mobile, presence: true, format: { with: /\A\+?\d{10}\z/, message: "must be a valid phone number with 10 digits" }
   validates :college, presence: { message: "College name can't be empty" }
   validates :dob, presence: { message: "Date of birth can't be blank" }
-  
+
+  include Visible
+
   validate :dob_must_be_valid_date
   validates :gender, presence: { message: "Please enter gender (Male/female)" }
   validate :check_gender
+
+  has_many :subjects, dependent: :destroy
 
   def dob_must_be_valid_date
     if dob.present?

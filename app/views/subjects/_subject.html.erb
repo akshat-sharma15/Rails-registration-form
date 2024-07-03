@@ -1,0 +1,19 @@
+<% @user.subjects.each do |sub| %>
+  <% unless sub.archived? %>
+    <p>
+      <strong>Subject:</strong>
+      <%= sub.sub_name %>
+    </p>
+
+    <p>
+      <strong>code:</strong>
+      <%= sub.sub_code %>
+    </p>
+  <% end %>  
+  
+  </p>
+  <%= link_to "Destroy Comment", [subject.user, sub], data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %>
+<% end %>
